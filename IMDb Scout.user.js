@@ -7,7 +7,7 @@
 // @require     https://greasyfork.org/libraries/GM_config/20131122/GM_config.js
 // @require     http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js
 //
-// @version        4.8.0
+// @version        4.8.1
 // @include        http*://*.imdb.tld/title/tt*
 // @include        http*://*.imdb.tld/search/title*
 // @include        http*://*.imdb.com/title/tt*
@@ -303,11 +303,9 @@
 4.7.1   -    Fix blutopia, hdchina, indenting
 
 4.7.2   -    Fix SDBits, M-T
-<<<<<<< HEAD
         -    Add TTGg
 
 4.7.3   -    Enable on https versions of imdb sites
-=======
         -    Add TTG
 
 4.8.0   -    Add FinVip, JoyHD, TO, TP, TS, TVCK
@@ -316,7 +314,8 @@
         -    Rip out all site-specific code
         -    Fix up minor code smells
         -    Allow config name to be different from site name
->>>>>>> Bump minor version
+
+4.8.1   -    Add SP
 --------------------------------------------------------*/
 
 if (window.top != window.self) // Don't run on frames or iframes
@@ -637,6 +636,10 @@ var sites = [
       'searchUrl': 'http://rutor.info/search/0/0/010/0/%tt%',
       'matchRegex': 'Результатов поиска 0',
       'both': true},
+  {   'name': 'SC',
+      'searchUrl': 'https://secret-cinema.pw/torrents.php?searchstr=%search_string%',
+      'matchRegex': /Your search did not match anything\.|There was a problem executing the query/,
+      'both': true},
   {   'name': 'SDBits',
       'searchUrl': 'https://sdbits.org/browse.php?c6=1&c3=1&c1=1&c4=1&c5=1&c2=1&m1=1&incldead=0&from=&to=&imdbgt=0&imdblt=10&uppedby=&imdb=&search=%tt%',
       'matchRegex': /Nothing found!|<h1>You need cookies enabled to log in.<\/h1>/},
@@ -646,11 +649,11 @@ var sites = [
   {   'name': 'SM',
       'searchUrl': 'https://surrealmoviez.info/search.php?stext=%tt%',
       'matchRegex': /0 Movies found matching search criteria|You need to be logged in to view this page/},
-{   'name': 'SP',
-      'searchUrl': 'http://www.scenepalace.info/browse.php?search=nott&cat=0&incldead=1',
+  {   'name': 'SP',
+      'searchUrl': 'http://www.scenepalace.info/browse.php?search=%nott%&cat=0&incldead=1',
       'matchRegex': /<h1>Not logged in!<\/h1>|<h2>Nothing found!<\/h2>/,
       'both': true},
-    {   'name': 'TBD',
+  {   'name': 'TBD',
       'icon': 'https://1.bp.blogspot.com/-F2JeKtPCJYI/VgjpVxwMO4I/AAAAAAAAADg/VyNyp-yW9Ac/s1600/TBD.ico',
       'searchUrl': 'http://www.torrentbd.com/torrent/torrents-search.php?search=%search_string%',
       'matchRegex': /No torrents were found based on your search criteria./,
@@ -718,6 +721,8 @@ var sites = [
 ];
 
 var icon_sites = [
+  {   'name': 'TMDB',
+      'searchUrl': 'https://www.themoviedb.org/search?query=%search_string%'},
   {   'name': 'OpenSubtitles',
       'searchUrl': 'http://www.opensubtitles.org/en/search/imdbid-%tt%'},
   {   'name': 'YouTube.com',
