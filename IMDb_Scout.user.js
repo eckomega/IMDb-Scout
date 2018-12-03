@@ -715,6 +715,8 @@ var icon_sites = [
       'searchUrl': 'https://www.thetvdb.com/search?q=%search_string%'},
   {   'name': 'BCDB',
       'searchUrl': 'https://www.bcdb.com/bcdb/search.cgi?query=%search_string%'},
+  {   'name': 'TMDB',
+      'searchUrl': 'https://www.themoviedb.org/search?query=%search_string%'},
   {   'name': 'OpenSubtitles',
       'searchUrl': 'http://www.opensubtitles.org/en/search/imdbid-%tt%'},
   {   'name': 'YouTube.com',
